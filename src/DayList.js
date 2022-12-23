@@ -3,19 +3,17 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 
-function Food(props) {
+function DayList(props) {
+    console.log(props);
     return (
         <div>
             <Card sx={{ minWidth: 100, maxHeight: 300, overflow: "auto" }}>
                 <CardContent>
                     <Typography>
-                        Date & time: {props.data.datentime.format()}
+                        Date: {props.day}
                     </Typography>
                     <Typography>
-                        Name: {props.data.name}
-                    </Typography>
-                    <Typography>
-                        Calorie: {props.data.calorie}
+                        Total Calorie: {props.calorie}
                     </Typography>
                 </CardContent>
             </Card>
@@ -23,4 +21,4 @@ function Food(props) {
     );
 }
 
-export default Food;
+export default DayList;
