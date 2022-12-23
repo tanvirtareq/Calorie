@@ -17,7 +17,9 @@ import DayList from './DayList';
 function FoodEntry() {
     const [foodList, setFoodList] = useState([]);
     const [newFoodEntry, setNewFoodEntry] = useState({
-        datentime: dayjs()
+        datentime: dayjs(),
+        name:'',
+        calorie:''
     });
 
     let calorieLimitPerDay = 2.1;
@@ -38,11 +40,8 @@ function FoodEntry() {
                 count = totalCalorie[date] + newFoodEntry.calorie;;
             }
             setTotalCalorie({ ...totalCalorie, [date]: count });
-            console.log(count);
             if (count > calorieLimitPerDay) {
-                console.log("as");
                 setDaysCrossingLimit([...new Set([...daysCrossingLimit, date])]);
-                console.log(daysCrossingLimit);
             }
 
         }
@@ -54,7 +53,7 @@ function FoodEntry() {
             <div >
                 <Card sx={{ minWidth: 10, maxHeight: 300, overflow: "auto", margin: '5%' }}>
                     <CardContent>
-                        {foodList.map((food) => (<Food data={food} />))}
+                        {foodList.map((food, index) => (<Food data={food} key={index} />))}
                     </CardContent>
                 </Card>
                 <div >
@@ -93,7 +92,7 @@ function FoodEntry() {
                 </Typography>
                 <Card sx={{ minWidth: 10, maxHeight: 300, overflow: "auto", margin: '5%' }}>
                     <CardContent>
-                        {daysCrossingLimit.map((day) => (<DayList calorie={totalCalorie[day] } day={day} />))}
+                        {daysCrossingLimit.map((day, index) => (<DayList calorie={totalCalorie[day] } day={day} key={index} />))}
                     </CardContent>
                 </Card>
             </div>

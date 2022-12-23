@@ -4,7 +4,6 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 
 function DayList(props) {
-    console.log(props);
     return (
         <div>
             <Card sx={{ minWidth: 100, maxHeight: 300, overflow: "auto" }}>
@@ -13,7 +12,7 @@ function DayList(props) {
                         Date: {props.day}
                     </Typography>
                     <Typography>
-                        Total Calorie: {props.calorie}
+                        Total Calorie: {Math.round(props.calorie*100)/100}
                     </Typography>
                 </CardContent>
             </Card>
