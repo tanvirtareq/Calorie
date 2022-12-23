@@ -23,7 +23,9 @@ function FoodEntry() {
         newFoodEntry.calorie=parseFloat(newFoodEntry.calorie);
         if(newFoodEntry.name && newFoodEntry.calorie && newFoodEntry.datentime.isValid())
         {
-            setFoodList([...foodList, newFoodEntry]);
+            setFoodList([...foodList, newFoodEntry].sort((a, b)=>{
+                return a.datentime-b.datentime;
+            }));
         }
         
     }
