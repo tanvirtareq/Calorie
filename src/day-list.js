@@ -6,7 +6,7 @@ import Day from "./day";
 const DayList = (props) => {
   const { daysCrossingLimit, totalCalorie } = props;
   return (
-    <Card sx={{ minWidth: 10, maxHeight: 300, overflow: "auto", margin: "5%" }}>
+    <Card sx={{ minWidth: 10, maxHeight: 300, overflow: 'auto', margin: '5%' }}>
       <CardContent>
         {daysCrossingLimit.map((day, index) => (
           <Day calorie={totalCalorie[day]} day={day} key={index} />

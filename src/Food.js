@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 const Food = (props) => {
   return (
     <div>
-      <Card sx={{ minWidth: 100, maxHeight: 300, overflow: "auto" }}>
+      <Card sx={{ minWidth: 100, maxHeight: 300, overflow: 'auto' }}>
         <CardContent>
           <Typography>Date & time: {props.data.datentime.format()}</Typography>
           <Typography>Name: {props.data.name}</Typography>

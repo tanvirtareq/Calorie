@@ -1,3 +1,4 @@
+import React from "react";
 import FoodEntry from "./food-entry";
 
 const App = () => {

@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 const Day = (props) => {
   const { day, calorie } = props;
   return (
-    <Card sx={{ minWidth: 100, maxHeight: 300, overflow: "auto" }}>
+    <Card sx={{ minWidth: 100, maxHeight: 300, overflow: 'auto' }}>
       <CardContent>
         <Typography>Date: {day}</Typography>
         <Typography>
