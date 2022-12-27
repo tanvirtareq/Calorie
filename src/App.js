@@ -1,10 +1,8 @@
+import React from "react";
+import FoodEntry from "./food-entry";
 
-import FoodEntry from './FoodEntry';
-
-function App() {
-  return (
-    <FoodEntry/>
-  );
-}
+const App = () => {
+  return <FoodEntry />;
+};
 
 export default App;
