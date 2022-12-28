@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
-import DayList from "./day-list.js";
+import DayList from "./day-list";
 import FoodCard from "./food-card";
 import FoodForm from "./food-form";
 import Box from "@mui/material/Box";
@@ -15,6 +15,7 @@ const FoodEntry = () => {
   const [daysCrossingLimit, setDaysCrossingLimit] = useState([]);
 
   return (
+    // <div>hello</div>
     <Box sx={{ margin: 'auto', display: 'flex', padding: '5%' }}>
       <Box>
         <FoodCard foods={foodList} />

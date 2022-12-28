@@ -1,19 +1,19 @@
 import React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import Day from "./day";
+import Food from "./Food";
 
-const DayList = (props) => {
-  const { daysCrossingLimit, totalCalorie } = props;
+const FoodCard = (props: any) => {
+  const foods = props.foods;
   return (
     <Card sx={{ minWidth: 10, maxHeight: 300, overflow: 'auto', margin: '5%' }}>
       <CardContent>
-        {daysCrossingLimit.map((day, index) => (
-          <Day calorie={totalCalorie[day]} day={day} key={index} />
+        {foods.map((food: any, index: Number) => (
+          <Food data={food} key={index} />
         ))}
       </CardContent>
     </Card>
   );
 };
 
-export default DayList;
+export default FoodCard;

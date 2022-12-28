@@ -5,25 +5,27 @@ import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import dayjs from "dayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-const FoodForm = (props) => {
-  const [newFoodEntry, setNewFoodEntry] = useState({
+const FoodForm = (props: any) => {
+
+  const fd:{datentime: any, name: string, calorie: any} = {
     datentime: dayjs(),
     name: "",
     calorie: "",
-  });
-  const handleFoodNameChange = (e) => {
+  }
+  const [newFoodEntry, setNewFoodEntry] = useState(fd);
+  const handleFoodNameChange = (e: any) => {
     setNewFoodEntry((prevNewFoodEntry) => {
       return { ...prevNewFoodEntry, name: e.target.value };
     });
   };
 
-  const handleFoodCalorieChange = (e) => {
+  const handleFoodCalorieChange = (e: any) => {
     setNewFoodEntry((prevNewFoodEntry) => {
       return { ...prevNewFoodEntry, calorie: e.target.value };
     });
   };
 
-  const handleDateChange = (e) => {
+  const handleDateChange = (e: any) => {
     setNewFoodEntry((prevNewFoodEntry) => {
       return { ...prevNewFoodEntry, datentime: e };
     });
@@ -36,14 +38,14 @@ const FoodForm = (props) => {
     calorieLimitPerDay,
   } = props;
 
-  const isFoodValid = (food) => {
+  const isFoodValid = (food: any) => {
     return food.name && food.calorie && food.datentime.isValid();
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     newFoodEntry.calorie = parseFloat(newFoodEntry.calorie);
     if (isFoodValid(newFoodEntry)) {
-      setFoodList((prevFoodList) =>
+      setFoodList((prevFoodList: any) =>
         [...prevFoodList, newFoodEntry].sort((a, b) => {
           return a.datentime - b.datentime;
         })
@@ -53,12 +55,12 @@ const FoodForm = (props) => {
       if (totalCalorie[date]) {
         count = totalCalorie[date] + newFoodEntry.calorie;
       }
-      setTotalCalorie((prevTotalCalorie) => {
+      setTotalCalorie((prevTotalCalorie: any) => {
         const newTotalCalorie = { ...prevTotalCalorie, [date]: count };
         return newTotalCalorie;
       });
       if (count > calorieLimitPerDay) {
-        setDaysCrossingLimit((prevDaysCrossingLimit) => [
+        setDaysCrossingLimit((prevDaysCrossingLimit: any) => [
           ...new Set([...prevDaysCrossingLimit, date]),
         ]);
       }
@@ -83,7 +85,6 @@ const FoodForm = (props) => {
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DateTimePicker
           label="Date&Time"
-          name="Date&Time"
           value={newFoodEntry.datentime}
           onChange={handleDateChange}
           renderInput={(params) => <TextField {...params} />}

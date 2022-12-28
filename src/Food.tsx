@@ -3,7 +3,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 
-const Food = (props) => {
+const Food = (props: any) => {
   return (
     <div>
       <Card sx={{ minWidth: 100, maxHeight: 300, overflow: 'auto' }}>
