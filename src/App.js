@@ -1,10 +1,7 @@
-
-import FoodEntry from './FoodEntry';
+import FoodEntry from "./FoodEntry";
 
 function App() {
-  return (
-    <FoodEntry/>
-  );
+  return <FoodEntry />;
 }
 
 export default App;
