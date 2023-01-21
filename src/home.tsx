@@ -2,11 +2,6 @@ import React, { useState, useEffect } from "react";
 import FoodEntry from "./food-entry";
 import Box from "@mui/material/Box";
 import DaysListCard from "./days-list-card";
-import dayjs, { Dayjs } from "dayjs";
-
-// export interface totalCalorieInterface{
-//     [Dayjs]:Number
-// }
 
 const Home = () => {
   let calorieLimitPerDay = 2.1;
@@ -18,7 +13,6 @@ const Home = () => {
 
   useEffect(() => {
     if (totalCalorie) {
-      console.log(totalCalorie);
       setDaysCrossingLimit(
         new Map<string, number>(
           [...totalCalorie].filter((it) => it[1] > calorieLimitPerDay)
@@ -28,9 +22,9 @@ const Home = () => {
   }, [totalCalorie, calorieLimitPerDay]);
 
   return (
-    <Box sx={{ margin: "auto", display: "flex", padding: "5%" }}>
+    <Box sx={{ display: "flex", padding: "5%" }}>
       <FoodEntry setTotalCalorie={setTotalCalorie} />
-      <DaysListCard daysCrossingLimit={daysCrossingLimit}/>
+      <DaysListCard daysCrossingLimit={daysCrossingLimit} />
     </Box>
   );
 };

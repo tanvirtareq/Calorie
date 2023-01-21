@@ -3,15 +3,17 @@ import React from "react";
 import Box from "@mui/material/Box";
 import DayList from "./day-list";
 
-export interface daysListCardPropsInterface{
-  daysCrossingLimit:Map<string, number>
+export interface daysListCardPropsInterface {
+  daysCrossingLimit: Map<string, number>;
 }
 
-const DaysListCard = ({daysCrossingLimit}:daysListCardPropsInterface) => {
+const DaysListCard = ({ daysCrossingLimit }: daysListCardPropsInterface) => {
   return (
-    <Box sx={{ margin: 'auto' }}>
-        <Typography>Days list that cross calorie limit.</Typography>
-        <DayList daysCrossingLimit={daysCrossingLimit}/>
+    <Box sx={{ margin: "3%", minWidth: 300 }}>
+      <Typography sx={{ align: "centre" }}>
+        Days list that cross calorie limit.
+      </Typography>
+      <DayList daysCrossingLimit={daysCrossingLimit} />
     </Box>
   );
 };

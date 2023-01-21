@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
-import dayjs, { Dayjs } from "dayjs";
+import dayjs from "dayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
@@ -40,7 +40,9 @@ const FoodEntryForm = ({
             ...prevTotalCalorie,
             [
               newFoodEntry.datentime.format("YYYY-MM-DD"),
-              prevTotalCalorie.get(newFoodEntry.datentime.format("YYYY-MM-DD")) + newFoodEntry.calorie,
+              prevTotalCalorie.get(
+                newFoodEntry.datentime.format("YYYY-MM-DD")
+              ) + newFoodEntry.calorie,
             ],
           ]);
         } else {
