@@ -1,8 +1,8 @@
 import React from "react";
-import FoodEntry from "./food-entry";
+import Home from "./home";
 
 const App = () => {
-  return <FoodEntry />
+  return <Home/>
 }
 
 export default App;

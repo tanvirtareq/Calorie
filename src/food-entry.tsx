@@ -2,21 +2,25 @@ import React, { useState } from "react";
 import FoodListCard from "./food-list-card";
 import FoodEntryForm from "./food-entry-form";
 import { Box } from "@mui/material";
+import dayjs, { Dayjs } from "dayjs";
 
 export interface foodEntryInterface{
-  datentime:any,
+  datentime:Dayjs,
   calorie: any,
   name:string
 }
 
-const FoodEntry = () => {
+export interface foodEntryPropsInterface{
+  setTotalCalorie:React.Dispatch<React.SetStateAction<Map<string, number>>>
+}
+
+const FoodEntry = ({setTotalCalorie}:foodEntryPropsInterface) => {
   
   const [foodList, setFoodList] = useState<foodEntryInterface[]>([]);
-
   return (
-    <Box style={{ margin: "auto", display: "table", padding: "5%" }}>
+    <Box>
       {foodList.length>0 && <FoodListCard foodList={foodList}/>}
-      <FoodEntryForm foodList={foodList} setFoodList={setFoodList}/>
+      <FoodEntryForm setFoodList={setFoodList} setTotalCalorie={setTotalCalorie}/>
     </Box>
   );
 };
